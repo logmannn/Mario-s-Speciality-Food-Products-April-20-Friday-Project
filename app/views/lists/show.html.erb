@@ -3,8 +3,8 @@
 <h1><%= @list.name %></h1>
 <img src="<%= @list.image %>" />
 <h3>Description: <%= @list.description %></h3>
-<h3>Github link:<a href="<%=@list.githublink%>"><%= @list.githublink %></a></h3>
-<h3>Live link:<%= @list.livelink %></h3>
+<h3>Github link: <a href="<%=@list.githublink%>"><%= @list.githublink %></a></h3>
+<h3>Live link: <a href="<%=@list.livelink%>"><%= @list.livelink %></a></h3>
 
 <% if @list.tasks.any? %>
   <h4>Comments: </h4>
