@@ -6,5 +6,14 @@
        <a href="<%=list_path(list)%>"><img class="img-fluid" src="<%= list.image %>" /></a>
     <% end %>
   </ul>
+
+<h3 id="portfolio">Projects with most comments</h3>
+
+  <ul>
+    <% @lists.most_tasks.each do |list| %>
+       <a href="<%=list_path(list)%>"><img class="img-fluid" src="<%= list.image %>" /></a>
+    <% end %>
+  </ul>
+
 </center>
 </div>
