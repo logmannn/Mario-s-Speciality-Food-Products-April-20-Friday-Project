@@ -1,6 +1,7 @@
 class ListsController < ApplicationController
   def home
     @lists = List.all
+    @alphaSort = @lists.sort_by {|obj| obj.name}
     render :home
   end
 
