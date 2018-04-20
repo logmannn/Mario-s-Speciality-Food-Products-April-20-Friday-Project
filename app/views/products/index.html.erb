@@ -1,5 +1,14 @@
 <h1>Products</h1>
+<hr>
+<h3>Recently added Products</h3>
 <div class="container">
+
+  <ul>
+    <% @products.id_sort.each do |product| %>
+       <li><%= link_to product.name, product_path(product)%> | <%= product.cost %> | <%= product.country_of_origin %></li>
+    <% end %>
+  </ul>
+
   <ul>
     <% @products.each do |product| %>
        <li><%= link_to product.name, product_path(product)%> | <%= product.cost %> | <%= product.country_of_origin %></li>

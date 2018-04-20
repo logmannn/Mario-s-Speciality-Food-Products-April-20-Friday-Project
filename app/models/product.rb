@@ -23,9 +23,10 @@ class Product < ActiveRecord::Base
 
 
   scope :id_sort, -> {(
-    select("products.id, products.name, products.image, products.country_of_origin")
+    select("products.id, products.name, products.image, products.country_of_origin, products.cost")
     .group("products.id")
-    .limit(10)
+    .order("products.id DESC")
+    .limit(3)
   )}
 
 
