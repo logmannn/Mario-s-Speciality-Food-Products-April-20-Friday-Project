@@ -13,7 +13,7 @@
     <h3 id="portfolio">Projects with most reviews</h3>
 
     <ul>
-      <% @products.most_reviews_ascending.each do |product| %>
+      <% @products.most_reviews.each do |product| %>
          <a href="<%=product_path(product)%>"><img class="img-fluid" src="<%= product.image %>" /></a>
       <% end %>
     </ul>

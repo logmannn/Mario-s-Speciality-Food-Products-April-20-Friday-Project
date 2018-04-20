@@ -6,21 +6,12 @@ class Product < ActiveRecord::Base
   validates :cost, :presence => true
 
   scope :most_reviews, -> {(
-    select("products.id, products.name, products.image, products.country_of_origin, count(reviews.id) as reviews_count")
+    select("products.id, products.name, products.image, products.country_of_origin, products.cost, count(reviews.id) as reviews_count")
     .joins(:reviews)
     .group("products.id")
     .order("reviews_count DESC")
-    .limit(10)
+    .limit(1)
   )}
-
-  scope :most_reviews_ascending, -> {(
-    select("products.id, products.name, products.image, products.country_of_origin,  count(reviews.id) as reviews_count")
-    .joins(:reviews)
-    .group("products.id")
-    .order("reviews_count ASC")
-    .limit(10)
-  )}
-
 
   scope :id_sort, -> {(
     select("products.id, products.name, products.image, products.country_of_origin, products.cost")
@@ -29,6 +20,11 @@ class Product < ActiveRecord::Base
     .limit(3)
   )}
 
-
+  scope :usa_origin, -> {(
+    select("products.id, products.name, products.image, products.country_of_origin, products.cost")
+    .group("products.id")
+    .where("products.country_of_origin = 'USA'")    
+    .order("products.id DESC")
+  )}
 
 end

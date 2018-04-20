@@ -1,6 +1,6 @@
 <h1>Products</h1>
 <hr>
-<h3>Recently added Products</h3>
+<h3>Recently Added</h3>
 <div class="container">
 
   <ul>
@@ -9,11 +9,21 @@
     <% end %>
   </ul>
 
+  <hr>
+  <h3>Product with Most Reviews</h3>
   <ul>
-    <% @products.each do |product| %>
+    <% @products.most_reviews.each do |product| %>
        <li><%= link_to product.name, product_path(product)%> | <%= product.cost %> | <%= product.country_of_origin %></li>
     <% end %>
   </ul>
+
+  <h3>Products Made in the USA</h3>
+  <ul>
+    <% @products.usa_origin.each do |product| %>
+       <li><%= link_to product.name, product_path(product)%> | <%= product.cost %> | <%= product.country_of_origin %></li>
+    <% end %>
+  </ul>
+
 
   <%= link_to "ADD a Product", new_product_path %>
 </div>
