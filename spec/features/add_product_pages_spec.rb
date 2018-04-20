@@ -6,7 +6,7 @@ describe "the add a product process" do
     click_link 'ADD a Product'
     fill_in 'Name', :with => 'Bob Jones'
     fill_in 'Image', :with => 'https://i.imgur.com/SuI4cPh.gif'
-    fill_in 'Country_of_origin', :with => 'USA'
+    fill_in 'Countryoforigin', :with => 'USA'
     fill_in 'Cost', :with => '3'
     click_on 'Create Product'
     expect(page).to have_content 'Products'
