@@ -1,21 +1,21 @@
 class TasksController < ApplicationController
   def new
-    @list = List.find(params[:list_id])
-    @task = @list.tasks.new
+    @product = Product.find(params[:product_id])
+    @task = @product.tasks.new
   end
 
   def create
-    @list = List.find(params[:list_id])
-    @task = @list.tasks.new(task_params)
+    @product = Product.find(params[:product_id])
+    @task = @product.tasks.new(task_params)
     if @task.save
-      redirect_to list_path(@task.list)
+      redirect_to product_path(@task.product)
     else
       render :new
     end
   end
 
   def edit
-    @list = List.find(params[:list_id])
+    @product = Product.find(params[:product_id])
     @task = Task.find(params[:id])
     render :edit
   end
@@ -23,7 +23,7 @@ class TasksController < ApplicationController
   def update
     @task = Task.find(params[:id])
     if @task.update(task_params)
-      redirect_to lists_path
+      redirect_to products_path
     else
       render :edit
     end
@@ -32,7 +32,7 @@ class TasksController < ApplicationController
   def destroy
     @task = Task.find(params[:id])
     @task.destroy
-    redirect_to lists_path
+    redirect_to products_path
   end
 
 private

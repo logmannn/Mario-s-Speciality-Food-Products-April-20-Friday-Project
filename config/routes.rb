@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
-  root :to => 'lists#home'
-  resources :lists do
+  root :to => 'products#home'
+  resources :products do
     resources :tasks
   end
 end

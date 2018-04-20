@@ -1,0 +1,32 @@
+<% content_for(:title, "Product | To Do") %>
+
+<h1><%= @product.name %></h1>
+<img src="<%= @product.image %>" />
+<h3>Description: <%= @product.description %></h3>
+<h3>Github link: <a href="<%=@product.githublink%>"><%= @product.githublink %></a></h3>
+<h3>Live link: <a href="<%=@product.livelink%>"><%= @product.livelink %></a></h3>
+
+<% if @product.tasks.any? %>
+  <h4>Comments: </h4>
+  <h1>
+    <% @product.tasks.each do |task| %>
+      <p>
+        <%= task.description %> |
+        <%= link_to "Edit", edit_product_task_path(@product, task) %> |
+        <%= link_to "Delete", product_task_path(@product, task),
+                                  :data => {:confirm => "Are you sure?",
+                                                :method => "delete"} %>
+        </p>
+    <% end %>
+  </h1>
+<% else %>
+  <p>There are no comments yet!</p>
+<% end %>
+
+<p><%= link_to "Add a task", new_product_task_path(@product) %></p>
+<p><%= link_to "Edit Product", edit_product_url %></p>
+<p><%= link_to "Delete Product", product_path(@product),
+                          :data => {:confirm => "You sure?",
+                                    :method => "delete"} %></p>
+
+<p><%= link_to "Return to products", products_path %></p>

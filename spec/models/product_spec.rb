@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe List do
+describe Product do
   it { should validate_presence_of :name }
   it { should validate_presence_of :image }
   it { should validate_presence_of :description }

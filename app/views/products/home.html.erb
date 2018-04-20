@@ -1,0 +1,37 @@
+<div class="top-portion">
+  <h1 id="portfolio">Portfolio</h1>
+</div>
+
+<div class="container body-portion">
+  <center>
+    <!-- <ul>
+      <% @products.each do |product| %>
+         <a href="<%=product_path(product)%>"><img class="img-fluid" src="<%= product.image %>" /></a>
+      <% end %>
+    </ul> -->
+
+    <h3 id="portfolio">Projects with most comments</h3>
+
+    <ul>
+      <% @products.most_tasks_ascending.each do |product| %>
+         <a href="<%=product_path(product)%>"><img class="img-fluid" src="<%= product.image %>" /></a>
+      <% end %>
+    </ul>
+
+    <h3 id="portfolio">Projects names sorted by id</h3>
+
+    <ul>
+      <% @products.id_sort.each do |product| %>
+         <a href="<%=product_path(product)%>"><img class="img-fluid" src="<%= product.image %>" /></a>
+      <% end %>
+    </ul>
+
+    <h3 id="portfolio">Projects names sorted alphabetically</h3>
+    <ul>
+      <% @alphaSort.each do |product| %>
+        <a href="<%=product_path(product)%>"><img class="img-fluid" src="<%= product.image %>" /></a>
+      <% end %>
+    </ul>
+
+  </center>
+</div>
