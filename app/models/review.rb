@@ -1,5 +1,5 @@
 class Review < ActiveRecord::Base
   belongs_to :product
 
-  validates :description, :presence => true
+  validates :country_of_origin, :presence => true
 end
