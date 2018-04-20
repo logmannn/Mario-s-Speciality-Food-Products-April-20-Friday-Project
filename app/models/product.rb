@@ -1,30 +1,30 @@
 class Product < ActiveRecord::Base
-  has_many :tasks
+  has_many :reviews
   validates :name, :presence => true
   validates :image, :presence => true
   validates :description, :presence => true
 
-  scope :most_tasks, -> {(
-    select("products.id, products.name, products.image, products.description, products.githublink, products.livelink, count(tasks.id) as tasks_count")
-    .joins(:tasks)
+  scope :most_reviews, -> {(
+    select("products.id, products.name, products.image, products.description, products.githublink, products.livelink, count(reviews.id) as reviews_count")
+    .joins(:reviews)
     .group("products.id")
-    .order("tasks_count DESC")
+    .order("reviews_count DESC")
     .limit(10)
   )}
 
-  scope :most_tasks_ascending, -> {(
-    select("products.id, products.name, products.image, products.description, products.githublink, products.livelink, count(tasks.id) as tasks_count")
-    .joins(:tasks)
+  scope :most_reviews_ascending, -> {(
+    select("products.id, products.name, products.image, products.description, products.githublink, products.livelink, count(reviews.id) as reviews_count")
+    .joins(:reviews)
     .group("products.id")
-    .order("tasks_count ASC")
+    .order("reviews_count ASC")
     .limit(10)
   )}
 
-  # scope :no_tasks, -> {(
-  #   select("products.id, products.name, products.image, products.description, products.githublink, products.livelink, count(tasks.id) as tasks_count")
-  #   .joins(:tasks)
+  # scope :no_reviews, -> {(
+  #   select("products.id, products.name, products.image, products.description, products.githublink, products.livelink, count(reviews.id) as reviews_count")
+  #   .joins(:reviews)
   #   .group("products.id")
-  #   .order("tasks_count ASC")
+  #   .order("reviews_count ASC")
   #   .limit(10)
   # )}
 
