@@ -2,7 +2,14 @@
 
 This is a project created by Logan Tanous on 4/20/18 while attending the Epicodus code school.
 
-## Features
+<center><i>Landing Page</i></center>
+<img src="large-main-page.png">
+
+<center><i>Product Page</i></center>
+<img src="productpage.png">
+
+##Features
+
 <ul>
   <li>one-to-many relationship between Products and Reviews</li>
   <li>landing page that utilizes scope to display:
@@ -27,7 +34,9 @@ This is a project created by Logan Tanous on 4/20/18 while attending the Epicodu
       <li>The review's content_body stays between 50 and 250 characters.</li>
     </ul>
   </li>
-  <li>Presentable styling</li>
+  <li>Success and error flash messages that hide themselves after 3 seconds</li>
+  <li>/products set as root homepage</li>
+  <li>Presentable bootstrap responsive styling</li>
 </ul>
 
 ## Setup/Installation
@@ -47,3 +56,5 @@ $ rails s
 `
 <br><br>
 Open in the browser
+<br><br>
+<center><i>Use for educational purposes</i></center>

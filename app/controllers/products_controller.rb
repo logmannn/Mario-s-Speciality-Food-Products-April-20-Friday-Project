@@ -25,7 +25,7 @@ class ProductsController < ApplicationController
   # based on lessons (@product) can be added at the end of products_path but still needs (product_params to work)
     @product = Product.new(product_params)
     if @product.save
-      flash[:notice] = "Product successfully added~"
+      flash[:notice] = "Product successfully added"
       redirect_to  products_path
     else
       render :new
@@ -38,6 +38,7 @@ class ProductsController < ApplicationController
   end
 
   def update
+    flash[:notice] = "Product successfully updated"
     @product = Product.find(params[:id])
     if @product.update(product_params)
       redirect_to
@@ -49,7 +50,7 @@ class ProductsController < ApplicationController
   def destroy
     @product = Product.find(params[:id])
     if @product.destroy
-      flash[:notice] = "Item destroyed"
+      flash[:notice] = "Product successfully destroyed"
       redirect_to products_path
     else
       render :new
