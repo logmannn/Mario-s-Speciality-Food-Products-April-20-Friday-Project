@@ -5,7 +5,7 @@
 
   <ul>
     <% @products.id_sort.each do |product| %>
-       <li><%= link_to product.name, product_path(product)%> | <%= product.cost %> | <%= product.country_of_origin %></li>
+       <li><%= link_to product.name, product_path(product)%> | <%= product.cost %> | <%= product.countryoforigin %></li>
     <% end %>
   </ul>
 
@@ -13,14 +13,14 @@
   <h3>Product with Most Reviews</h3>
   <ul>
     <% @products.most_reviews.each do |product| %>
-       <li><%= link_to product.name, product_path(product)%> | <%= product.cost %> | <%= product.country_of_origin %></li>
+       <li><%= link_to product.name, product_path(product)%> | <%= product.cost %> | <%= product.countryoforigin %></li>
     <% end %>
   </ul>
 
   <h3>Products Made in the USA</h3>
   <ul>
     <% @products.usa_origin.each do |product| %>
-       <li><%= link_to product.name, product_path(product)%> | <%= product.cost %> | <%= product.country_of_origin %></li>
+       <li><%= link_to product.name, product_path(product)%> | <%= product.cost %> | <%= product.countryoforigin %></li>
     <% end %>
   </ul>
 
