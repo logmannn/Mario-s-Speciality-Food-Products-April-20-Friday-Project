@@ -1,4 +1,4 @@
-50.times do |index|
+1.times do |index|
   product = Product.create!(
     name: Faker::Book.title,
     image: "https://increasify.com.au/wp-content/uploads/2016/08/default-image.png",
@@ -8,7 +8,7 @@
   5.times do |index|
     product.reviews.create(
       author: Faker::Name.unique.name.chop,
-      content_body: Faker::Lorem.characters(55),
+      content_body: Faker::Lorem.words(50),
       rating: rand(0..5)
     )
   end

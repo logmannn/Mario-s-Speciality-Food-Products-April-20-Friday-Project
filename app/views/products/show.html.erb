@@ -1,13 +1,22 @@
 <% content_for(:title, "Product | To Do") %>
 <div class="container">
 
+  <p class="center"><%= link_to "Return to products", products_path %></p>
+
   <h1><%= @product.name %></h1>
+  <h3>$<%= @product.cost %></h3>
   <center><img src="<%= @product.image %>" /></center>
-  <h3>Country of origin: <%= @product.countryoforigin %></h3>
-  <h3>Cost: <%= @product.cost %></h3>
+  <p class="center">Made in: <%= @product.countryoforigin %> </p>
+
+
 
   <% if @product.reviews.any? %>
-    <h4>Reviews: </h4>
+    <h3>Reviews: </h3>
+    <div class="center">
+      <p><%= link_to "Add a review", new_product_review_path(@product) %> | <%= link_to "Edit Product", edit_product_url %> | <%= link_to "Delete Product", product_path(@product),
+                                :data => {:confirm => "You sure?",
+                                          :method => "delete"} %></p>
+    </div>
 
       <% @product.reviews.each do |review| %>
         <p>
@@ -25,11 +34,7 @@
     <p>There are no reviews yet!</p>
   <% end %>
 
-  <p><%= link_to "Add a review", new_product_review_path(@product) %></p>
-  <p><%= link_to "Edit Product", edit_product_url %></p>
-  <p><%= link_to "Delete Product", product_path(@product),
-                            :data => {:confirm => "You sure?",
-                                      :method => "delete"} %></p>
 
-  <p><%= link_to "Return to products", products_path %></p>
+
+  <p class="center"><%= link_to "Return to products", products_path %></p>
 </div>
