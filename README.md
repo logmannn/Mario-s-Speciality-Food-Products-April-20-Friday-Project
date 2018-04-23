@@ -8,7 +8,7 @@ This is a project created by Logan Tanous on 4/20/18 while attending the Epicodu
 <center><i>Product Page</i></center>
 <img src="productpage.png">
 
-##Features
+## Features
 
 <ul>
   <li>one-to-many relationship between Products and Reviews</li>
