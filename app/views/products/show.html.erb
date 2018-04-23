@@ -9,14 +9,15 @@
   <p class="center">Made in: <%= @product.countryoforigin %> </p>
 
 
+  <div class="center">
+    <p><%= link_to "Add a review", new_product_review_path(@product) %> | <%= link_to "Edit Product", edit_product_url %> | <%= link_to "Delete Product", product_path(@product),
+                              :data => {:confirm => "You sure?",
+                                        :method => "delete"} %></p>
+  </div>
 
   <% if @product.reviews.any? %>
     <h3>Reviews: </h3>
-    <div class="center">
-      <p><%= link_to "Add a review", new_product_review_path(@product) %> | <%= link_to "Edit Product", edit_product_url %> | <%= link_to "Delete Product", product_path(@product),
-                                :data => {:confirm => "You sure?",
-                                          :method => "delete"} %></p>
-    </div>
+
 
       <% @product.reviews.each do |review| %>
         <p>
